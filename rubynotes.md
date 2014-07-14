@@ -38,3 +38,6 @@ ruby regex for email: ^[\w]+@[\w(-)]+\.[a-zA-Z]{2,4}$ -- means any word, number 
 
 Class.class_eval allows you to modifiy a class object without reponening (what you write in here is exactly as you would just write in the class itself, no need to defined_method or alias_method UNLESS that is what you are specifically going for OR to create a method with string interpolation)
 instance.instance_eval allows you to modifiy a class object without reponening
+
+scope :default_permissions_for, lambda{|user| { :conditions => { :user_id => user.id, :is_default => true } }
+scope :deafult_permissions_for, -> {|user| {conditions: {user_id: user.id}}}

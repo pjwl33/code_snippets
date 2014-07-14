@@ -41,3 +41,5 @@ instance.instance_eval allows you to modifiy a class object without reponening
 
 scope :default_permissions_for, lambda{|user| { :conditions => { :user_id => user.id, :is_default => true } }
 scope :deafult_permissions_for, -> {|user| {conditions: {user_id: user.id}}}
+
+/(?<a>\w+\s*)+@(?<b>\s*\w+)/ =~ "hello@world", a = "hello", b = "world"

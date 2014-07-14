@@ -13,7 +13,7 @@ function validateForm(){
 }
 
 function validateEmail(email){
-  var validation = /[\w_%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/;
+  var validation = /[\w_%+-]+@[\w]+\.[a-zA-Z]{2,4}/;
   if (validation.test(email)) {
     confirm("Is '" + email + "' correct?");
   } else {

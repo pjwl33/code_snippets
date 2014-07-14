@@ -29,3 +29,12 @@ end
 .send(symbol or string of the method name in a class) will call even private methods
 
 protected vs. private - usually has to do with .send vs. .public_send. public send will allow to pass only to non-protected or private methods.
+
+enumberables are mixin modules that allow collection sorting, like the .each, .map methods
+
+.inject (block passed with arguments - first arg is the accumulator value, followed by the element itself)
+
+ruby regex for email: ^[\w]+@[\w(-)]+\.[a-zA-Z]{2,4}$ -- means any word, number chacter (included -), then in () means an exclusion, have \ before special symbols to add them to the string
+
+Class.class_eval allows you to modifiy a class object without reponening (what you write in here is exactly as you would just write in the class itself, no need to defined_method or alias_method UNLESS that is what you are specifically going for OR to create a method with string interpolation)
+instance.instance_eval allows you to modifiy a class object without reponening

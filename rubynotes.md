@@ -15,13 +15,13 @@ def greeting
   return "Goodbye"
 end
 
--> output is "Goodbye"
+-> output is "Goodbye" - more like a function, scope of funciton, precise number of arguments
 
 def greeting
   my_proc = Proc.new {return "Hello"}
   my_proc.call
 
-  return "Goodbye"
+  return "Goodbye", returns both proc object and block, not as strict on argument number
 end
 
 -> output is "Hello"
@@ -43,3 +43,16 @@ scope :default_permissions_for, lambda{|user| { :conditions => { :user_id => use
 scope :deafult_permissions_for, -> {|user| {conditions: {user_id: user.id}}}
 
 /(?<a>\w+\s*)+@(?<b>\s*\w+)/ =~ "hello@world", a = "hello", b = "world"
+[12] pry(main)> /(?<a>\w+\s*)+@(?<b>\s*\w+)/.match("hello@world")[:a]
+"hello"
+[13] pry(main)> /(?<a>\w+\s*)+@(?<b>\s*\w+)/.match("hello@world")[:b]
+"world"
+[14] pry(main)> /(?<dollars>\d+)+\.(?<cents>\d+{2}))/.match("2.33")
+SyntaxError: (eval):2: unmatched close parenthesis: /(?<dollars>\d+)+\.(?<cents>\d+{2}))/
+[14] pry(main)> /(?<dollars>\d+)+\.(?<cents>\d+{2})/.match("2.33")
+#<MatchData "2.33" dollars:"2" cents:"33">
+[15] pry(main)> /(?<dollars>\d+)+\.(?<cents>\d+{2})/.match("2.33")[:dollars]
+"2"
+[16] pry(main)> /(?<dollars>\d+)+\.(?<cents>\d+{2})/.match("2.33")[:cents]
+"33"
+[17] pry(main)>
